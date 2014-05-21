@@ -8,12 +8,9 @@ html
   body(ng-app)
     section(ng-controller="MyController as nhl")
       select(ng-model="team" ng-change="change()" ng-options="team.name for team in teams")
+      select(ng-model="season" ng-change="change()" ng-options="season.years for season in seasons")
       hr
       h1 {{ team.name }}
-      table(ng-repeat="player in players")
-        tr
-          td: strong {{ player.sweater }}
-          td {{ player.name }}
-          td G {{ player.goals }}
-          td A {{ player.assists }}
-          td P {{ player.points }}
+      .player(ng-repeat="player in players")
+        h5 {{ player.name }}
+        pre {{ player }}
