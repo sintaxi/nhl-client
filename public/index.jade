@@ -1,0 +1,18 @@
+!!!
+html
+  head
+    meta(name="viewport", content="width=device-width")
+    link(rel="stylesheet", type="text/css", href="css/main.css")
+    script(type="text/javascript", src="js/angular.js")
+    script(type="text/javascript", src="js/app.js")
+  body(ng-app)
+    section(ng-controller="MyController as nhl")
+      select(ng-model="team" ng-change="change()" ng-options="team.name for team in teams")
+      hr
+      h1 {{ team.name }}
+      div(ng-repeat="player in players")
+        h2 {{ player.name }} ({{ player.sweater }})
+        ul
+          li G {{ player.goals }}
+          li A {{ player.assists }}
+          li P {{ player.points }}
