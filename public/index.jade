@@ -10,9 +10,10 @@ html
       select(ng-model="team" ng-change="change()" ng-options="team.name for team in teams")
       hr
       h1 {{ team.name }}
-      div(ng-repeat="player in players")
-        h2 {{ player.name }} ({{ player.sweater }})
-        ul
-          li G {{ player.goals }}
-          li A {{ player.assists }}
-          li P {{ player.points }}
+      table(ng-repeat="player in players")
+        tr
+          td: strong {{ player.sweater }}
+          td {{ player.name }}
+          td G {{ player.goals }}
+          td A {{ player.assists }}
+          td P {{ player.points }}
